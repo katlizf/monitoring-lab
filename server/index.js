@@ -26,7 +26,7 @@ let rollbar = new Rollbar({
 
 rollbar.log("Hello again!")
 
-app.post()
+// app.post()
 
 const port = process.env.PORT || 4554
 
