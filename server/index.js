@@ -12,12 +12,12 @@ app.get('/', (req, res) => {
 })
 
 app.get('/style', (req, res) => {
-    res.sendFile(path.join(__dirname, '../styles.css'))
+    res.sendFile(path.join(__dirname, '../styles/index.css'))
     rollbar.info('css file served')
 })
 
-// app.use(express.static("styles"))
-app.use(express.static(path.join(__dirname, '../styles/index.css')))
+app.use(express.static("styles"))
+// app.use(express.static(path.join(__dirname, '../styles/index.css')))
 
 let rollbar = new Rollbar({
     accessToken: '3ab6e5a8142347e894de5e4e9bef7fc7',
