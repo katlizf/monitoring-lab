@@ -27,10 +27,14 @@ app.post('/api/number', (req, res)=>{
     let {number} = req.body
     number = number.trim()
 
-    students.push(number)
+    numbers.push(number)
+
+    rollbar.log('Number added successfully', {author: 'Katie', type: 'manual entry'})
 
     res.status(200).send(numbers)
 })
+
+app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 4554
 
