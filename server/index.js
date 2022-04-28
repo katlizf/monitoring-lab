@@ -7,16 +7,16 @@ const app = express()
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'))
+    res.sendFile(path.join(__dirname, '../styles/index.html'))
     rollbar.info('html file served successfully.')
 })
 
-app.get('/style', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.css'))
-    rollbar.info('css file served')
-})
+// app.get('/style', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../index.css'))
+//     rollbar.info('css file served')
+// })
 
-app.use(express.static(path.join(__dirname, '../styles/index.css')))
+app.use(express.static("styles"))
 
 let rollbar = new Rollbar({
     accessToken: '3ab6e5a8142347e894de5e4e9bef7fc7',
