@@ -25,8 +25,7 @@ let numbers = []
 
 app.post('/api/number', (req, res)=>{
     let {number} = req.body
-    number = number.trim()
-
+    
     numbers.push(number)
 
     rollbar.log('Number added successfully', {author: 'Katie', type: 'manual entry'})
