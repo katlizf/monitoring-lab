@@ -21,7 +21,16 @@ let rollbar = new Rollbar({
 
 rollbar.log("Hello again!")
 
-// app.post()
+let numbers = []
+
+app.post('/api/number', (req, res)=>{
+    let {number} = req.body
+    number = number.trim()
+
+    students.push(number)
+
+    res.status(200).send(numbers)
+})
 
 const port = process.env.PORT || 4554
 
