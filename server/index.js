@@ -3,6 +3,7 @@ const path = require('path')
 const Rollbar = require("rollbar")
 
 const app = express()
+
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -10,7 +11,10 @@ app.get('/', (req, res) => {
     rollbar.info('html file served successfully.')
 })
 
-app.use(express.static("styles"))
+app.get('/style', (req, res) => {
+    res.sendFile(path.join(__dirname, '../styles.css'))
+    rollbar.info('css file served')
+})
 
 let rollbar = new Rollbar({
     accessToken: '3ab6e5a8142347e894de5e4e9bef7fc7',
