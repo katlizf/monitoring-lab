@@ -16,6 +16,9 @@ app.get('/style', (req, res) => {
     rollbar.info('css file served')
 })
 
+app.use(express.static("styles"))
+// app.use(express.static(path.join(__dirname, '../styles')))
+
 let rollbar = new Rollbar({
     accessToken: '3ab6e5a8142347e894de5e4e9bef7fc7',
     captureUncaught: true,
