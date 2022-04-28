@@ -1,10 +1,12 @@
 const express = require('express')
 const path = require('path')
+const axios = require('axios')
 const Rollbar = require("rollbar")
 
 const app = express()
 
 app.use(express.json())
+app.use(axios())
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../styles/index.html'))
